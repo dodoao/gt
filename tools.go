@@ -10,7 +10,7 @@ import (
 )
 
 /***
- * 获取程序运行路径
+ * 获取程序运行路径你
  */
 func Get_current_directory() string {
 	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
