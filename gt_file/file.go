@@ -74,6 +74,5 @@ func Path_search(path string, FileFunc func(Path, FileName string, FileType stri
 			}
 			FileFunc(path, file.Name(), strType)
 		}
-
 	}
 }
