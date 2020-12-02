@@ -105,7 +105,11 @@ func String_to_PrimitiveObjectID(strKey string) (primitive.ObjectID, bool) {
 }
 
 func String_to_Time(str string, timeLayoutStr string) (time.Time, bool) {
-
+	//时间转换的模板，golang里面只能是 "2006-01-02 15:04:05" （go的诞生时间）
+	//timeTemplate1 := "2006-01-02 15:04:05" //常规类型
+	//timeTemplate2 := "2006/01/02 15:04:05" //其他类型
+	//timeTemplate3 := "2006-01-02"          //其他类型
+	//timeTemplate4 := "15:04:05"            //其他类型
 	if timeLayoutStr == "" {
 		timeLayoutStr = "2006-01-02 15:04:05" //go中的时间格式化必须是这个时间
 	}
