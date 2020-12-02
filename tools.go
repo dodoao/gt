@@ -7,6 +7,7 @@ import (
 	"reflect"
 	"strconv"
 	"strings"
+	"time"
 )
 
 /***
@@ -103,6 +104,21 @@ func String_to_PrimitiveObjectID(strKey string) (primitive.ObjectID, bool) {
 	}
 }
 
+//
+func String_to_Time(str string) (time.Time, bool) {
+
+	var timeLayoutStr = "2006-01-02 15:04:05" //go中的时间格式化必须是这个时间
+	st, err := time.Parse(timeLayoutStr, str)
+	if err != nil {
+		return st, false
+	}
+	return st, true
+}
+
+func Time_to_String(st time.Time) string {
+	return st.String()
+}
+
 //string转类型传递的数据结构
 type GT_Type_SendData_struct struct {
 	Field    *reflect.Value
@@ -119,7 +135,6 @@ func Type_to_string(Type_ interface{}) string {
 		NewSturct := field.Interface().(GT_Type_SendData_struct)
 		field = *NewSturct.Field
 		typeOfTypeName = NewSturct.TypeName
-
 	}
 
 	if typeOfTypeName == "primitive.ObjectID" {
