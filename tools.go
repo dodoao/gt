@@ -104,7 +104,6 @@ func String_to_PrimitiveObjectID(strKey string) (primitive.ObjectID, bool) {
 	}
 }
 
-//
 func String_to_Time(str string) (time.Time, bool) {
 
 	var timeLayoutStr = "2006-01-02 15:04:05" //go中的时间格式化必须是这个时间
