@@ -65,13 +65,14 @@ func Path_search(path string, FileFunc func(Path, FileName string, FileType stri
 	fs, _ := ioutil.ReadDir(path)
 	for _, file := range fs {
 		if file.IsDir() {
-			FolderFunc(path, file.Name())
-			Path_search(path, FileFunc, FolderFunc)
+			fullPath := path + "/" + file.Name()
+			FolderFunc(fullPath, file.Name())
+			Path_search(fullPath, FileFunc, FolderFunc)
 		} else {
 			i := strings.LastIndex(file.Name(), ".")
 			strType := ""
 			if i != -1 {
-				strType = file.Name()[:i]
+				strType = file.Name()[i:]
 			}
 			FileFunc(path, file.Name(), strType)
 		}
