@@ -66,6 +66,7 @@ func Path_search(path string, FileFunc func(Path, FileName string, FileType stri
 	for _, file := range fs {
 		if file.IsDir() {
 			FolderFunc(path, file.Name())
+			Path_search(path, FileFunc, FolderFunc)
 		} else {
 			i := strings.LastIndex(file.Name(), ".")
 			strType := ""
