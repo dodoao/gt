@@ -26,7 +26,7 @@ func Create_and_cover(fileName string, str string) bool {
  * 创建或者追加
  */
 func Create_or_append(fileName string, str string) bool {
-	f, err := os.OpenFile(fileName, os.O_CREATE|os.O_APPEND, os.ModePerm)
+	f, err := os.OpenFile(fileName, os.O_CREATE|os.O_APPEND|os.O_WRONLY, os.ModePerm)
 	if err != nil {
 		fmt.Println("不能创建文件", fileName)
 		return false
