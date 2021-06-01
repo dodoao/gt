@@ -12,7 +12,7 @@ import (
  */
 func Create_and_cover(fileName string, str string) bool {
 	os.Remove(fileName)
-	f, err := os.OpenFile(fileName, os.O_CREATE|os.O_APPEND, os.ModePerm)
+	f, err := os.OpenFile(fileName, os.O_CREATE|os.O_APPEND|os.O_WRONLY, os.ModePerm)
 	if err != nil {
 		fmt.Println("不能创建文件", fileName)
 		return false
